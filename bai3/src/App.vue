@@ -4,7 +4,6 @@
   <base-modal @cancel="ontoggleModal" v-if="isShowModal" title="this is title" content="this is content" theme="sales">
     <template v-slot:header>
       <h2>This is header
-
         <head></head>
       </h2>
     </template>
