@@ -11,7 +11,7 @@
   <!-- <button @click="onChangeSomeThing">Click me</button> -->
 </template>
 <script>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed,watch,watchEffect } from 'vue'
 export default {
 
   setup() {
@@ -50,7 +50,18 @@ export default {
       console.log(customers);
       return customers
     }).filter(customer => customer.includes(searchText.value)))
-    console.log(customersFilled);
+    // console.log(customersFilled);
+
+    watch(searchText,(newValue,oldValue)=>{
+      console.log(newValue,oldValue);
+    })
+
+    watchEffect(()=>{
+      if(searchText.value){
+        console.log("runing again");
+      }
+    })
+
     return { searchText, customersFilled }
   }
 }
